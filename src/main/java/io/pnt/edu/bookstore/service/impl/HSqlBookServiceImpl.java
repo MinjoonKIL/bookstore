@@ -1,15 +1,20 @@
 package io.pnt.edu.bookstore.service.impl;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Service;
 
 import io.pnt.edu.bookstore.dto.Book;
 import io.pnt.edu.bookstore.service.BookService;
 
+@Primary
 @Service
 public class HSqlBookServiceImpl implements BookService{
 	@Autowired
@@ -22,7 +27,14 @@ public class HSqlBookServiceImpl implements BookService{
 
 	@Override
 	public List<Book> findByName(String name) {
-		// TODO Auto-generated method stub
+		PreparedStatementSetter setter = new PreparedStatementSetter() {
+			
+			@Override
+			public void setValues(PreparedStatement ps) throws SQLException {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 		return null;
 	}
 
